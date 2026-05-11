@@ -1,0 +1,78 @@
+{
+  "expo": {
+    "name": "RunVerse",
+    "slug": "runverse",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTabletMode": true,
+      "bundleIdentifier": "com.runverse.app",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "RunVerse needs access to your location to track your runs.",
+        "NSCameraUsageDescription": "RunVerse needs camera access to capture run photos.",
+        "NSPhotoLibraryUsageDescription": "RunVerse needs access to your photo library to upload images.",
+        "NSHealthShareUsageDescription": "RunVerse can sync with your health data.",
+        "UIRequiredDeviceCapabilities": [
+          "gps"
+        ]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.runverse.app",
+      "versionCode": 1,
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "runverse",
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow RunVerse to access your location while using the app and when in the background."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow RunVerse to access your camera."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow RunVerse to access your photos."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "runverse-mobile"
+      }
+    }
+  }
+}
