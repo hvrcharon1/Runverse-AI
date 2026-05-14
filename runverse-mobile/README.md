@@ -1,58 +1,27 @@
 # RunVerse Mobile App
 
-A comprehensive cross-platform running application built with React Native and Expo, providing runners with tools to track shoes, nutrition, recovery, and connect with the running community.
+A React Native/Expo mobile application for the RunVerse running platform. Track your runs, connect with runners worldwide, and optimize your training with our comprehensive running ecosystem.
 
 ## Features
 
-- **Shoe Tracking**: Log and monitor running shoes with mileage tracking and retirement alerts
-- **Run Logging**: Track distance, pace, elevation, and cadence with GPS data
-- **Nutrition Tracking**: Log meals and track macros with runner-focused dietary guidance
-- **Recovery Management**: Log sleep, rest days, and recovery activities with wellness scoring
-- **Social Community**: Share runs, follow other runners, like and comment on posts
-- **RunMarket**: Buy, sell, and trade running gear with other runners
-- **Route Mapping**: Draw, save, and share running routes with elevation data
-- **AI Assistant**: Get personalized training plans and running advice
-- **Leaderboards**: Compete with friends and the global running community
+- **Dashboard**: Personal stats overview with distance, shoes, runs, and streaks
+- **Shoe Tracking**: Log running shoes, track mileage, and receive retirement alerts
+- **Nutrition**: Log meals, track macros, and access runner-focused dietary tips
+- **Recovery**: Track rest days, sleep, recovery activities, and wellness score
+- **Community**: Social feed to share runs, like, comment, and follow other runners
+- **Marketplace**: Browse and list used running gear with peer-to-peer trading
+- **Routes**: Create, save, and share running routes with distance and elevation data
+- **AI Coach**: Personalized training plans and running advice powered by AI
+- **Profile**: Manage user profile, settings, and view running statistics
 
-## Tech Stack
+## Prerequisites
 
-- **Framework**: React Native with Expo
-- **Language**: TypeScript
-- **State Management**: Redux or Zustand
-- **Navigation**: React Navigation
-- **API**: tRPC client for backend communication
-- **Authentication**: Manus OAuth
-- **Maps**: Google Maps API
-- **Payments**: Stripe for marketplace transactions
-
-## Project Structure
-
-```
-runverse-mobile/
-├── app/                    # Expo Router navigation
-├── src/
-│   ├── components/         # Reusable UI components
-│   ├── screens/            # Feature screens
-│   ├── hooks/              # Custom hooks
-│   ├── store/              # State management
-│   ├── services/           # API and external services
-│   ├── utils/              # Utility functions
-│   └── types/              # TypeScript types
-├── assets/                 # Images, fonts, etc.
-├── app.json               # Expo configuration
-├── package.json
-└── tsconfig.json
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
+- Node.js 16+ and npm/yarn
 - Expo CLI: `npm install -g expo-cli`
-- iOS Simulator or Android Emulator
+- iOS Simulator (macOS) or Android Emulator
+- Expo Go app (for testing on physical devices)
 
-### Installation
+## Installation
 
 ```bash
 # Install dependencies
@@ -60,178 +29,170 @@ npm install
 # or
 yarn install
 
-# Start development server
-expo start
-
-# Run on iOS simulator
-expo start --ios
-
-# Run on Android emulator
-expo start --android
+# Start the development server
+npm start
+# or
+yarn start
 ```
 
-## Core Modules
+## Running the App
 
-### Authentication
-- Manus OAuth integration
-- Secure token storage
-- Session management
-- Protected routes
-
-### Shoe Tracking
-- Create and manage shoe inventory
-- Track mileage per shoe
-- Retirement alerts at 500-800km
-- Shoe history and statistics
-
-### Run Logging
-- GPS-based tracking
-- Real-time stats (pace, distance, elevation)
-- Route saving and sharing
-- Activity history
-
-### Nutrition Module
-- Meal logging with macro tracking
-- Pre/during/post-run recommendations
-- Hydration tracking
-- Nutrition history
-
-### Recovery Hub
-- Sleep logging
-- Rest day tracking
-- Recovery activity logging
-- Wellness score calculation
-
-### Social Features
-- Activity feed
-- Follow/unfollow system
-- Like and comment on posts
-- Direct messaging
-- Running groups
-
-### RunMarket
-- Listing creation and browsing
-- Offer and negotiation system
-- Secure checkout with Stripe
-- Transaction history and ratings
-
-### Route Mapping
-- Interactive map drawing
-- Distance calculation
-- Elevation data
-- Route sharing
-
-### AI Assistant
-- Training plan suggestions
-- Personalized advice
-- Q&A capabilities
-- Activity-based recommendations
-
-## Development
-
-### Running Tests
-
+### iOS Simulator
 ```bash
-npm test
+npm run ios
 ```
 
-### Building for Production
-
+### Android Emulator
 ```bash
-# iOS
-eas build --platform ios
-
-# Android
-eas build --platform android
-
-# Both
-eas build
+npm run android
 ```
 
-### Submitting to App Stores
-
+### Web Browser
 ```bash
-# Submit to TestFlight and App Store
-eas submit --platform ios
-
-# Submit to Google Play
-eas submit --platform android
+npm run web
 ```
 
-## Environment Variables
+### Physical Device
+1. Install Expo Go from App Store or Google Play
+2. Scan the QR code from the terminal after running `npm start`
 
-Create a `.env.local` file:
+## Project Structure
 
 ```
-EXPO_PUBLIC_API_URL=https://your-api-url.com
-EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
-EXPO_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSy...
-EXPO_PUBLIC_OAUTH_CLIENT_ID=your-client-id
+runverse-mobile/
+├── App.tsx                 # Main app entry point with navigation
+├── app.json               # Expo configuration
+├── package.json           # Dependencies and scripts
+├── src/
+│   ├── screens/           # Feature screens
+│   │   ├── LoginScreen.tsx
+│   │   ├── DashboardScreen.tsx
+│   │   ├── ShoesScreen.tsx
+│   │   ├── NutritionScreen.tsx
+│   │   ├── RecoveryScreen.tsx
+│   │   ├── CommunityScreen.tsx
+│   │   ├── MarketplaceScreen.tsx
+│   │   ├── RoutesScreen.tsx
+│   │   ├── AIChatScreen.tsx
+│   │   └── ProfileScreen.tsx
+│   ├── components/        # Reusable UI components
+│   ├── navigation/        # Navigation configuration
+│   ├── hooks/            # Custom React hooks
+│   └── utils/            # Utility functions
+└── assets/               # Images and static assets
 ```
+
+## Key Technologies
+
+- **React Native**: Cross-platform mobile development
+- **Expo**: Managed React Native framework
+- **React Navigation**: Navigation library for mobile
+- **Ionicons**: Icon library
+- **TypeScript**: Type-safe development
+
+## Authentication
+
+The app uses Manus OAuth for secure authentication. Users can sign in with their Manus account or create a new one.
 
 ## API Integration
 
-The mobile app connects to the RunVerse backend via tRPC. All API calls are authenticated using Manus OAuth tokens stored securely in device storage.
+The mobile app connects to the RunVerse backend API for:
+- User authentication and profile management
+- Run logging and tracking
+- Shoe management and retirement alerts
+- Nutrition and recovery data
+- Community posts and interactions
+- Marketplace listings and transactions
+- Route creation and sharing
+- AI-powered coaching
 
-### Example API Call
+## Development Guidelines
 
-```typescript
-import { trpc } from '@/services/trpc';
+### Adding a New Screen
 
-// Get user's shoes
-const { data: shoes } = trpc.shoes.list.useQuery();
+1. Create a new file in `src/screens/FeatureName.tsx`
+2. Implement the screen component with proper styling
+3. Add the route to the navigation in `App.tsx`
+4. Use consistent color scheme and typography
 
-// Create a new run
-const createRun = trpc.runs.create.useMutation();
-await createRun.mutateAsync({
-  distance: 5.2,
-  duration: 1800,
-  pace: '5:45',
-});
+### Styling
+
+- Use React Native StyleSheet for performance
+- Follow the RunVerse design system:
+  - Primary color: #EF4444 (Electric Orange)
+  - Background: #FFFFFF (White)
+  - Text: #1F2937 (Dark Charcoal)
+  - Accents: #10B981, #3B82F6, #F59E0B
+
+### State Management
+
+Currently using React hooks. For complex state, consider migrating to Redux or Zustand.
+
+## Testing
+
+```bash
+# Run tests (if configured)
+npm test
 ```
 
-## Security
+## Building for Production
 
-- All sensitive data is stored in secure device storage
-- OAuth tokens are refreshed automatically
-- API calls are made over HTTPS only
-- Payment data is handled by Stripe (PCI compliant)
-- User passwords are never stored locally
+### iOS
+```bash
+eas build --platform ios
+```
 
-## Performance Optimization
+### Android
+```bash
+eas build --platform android
+```
 
-- Lazy loading of screens
-- Image caching and optimization
-- Efficient list rendering with FlatList
-- Background sync for offline support
-- Code splitting and bundle optimization
+## Deployment
+
+Use Expo Application Services (EAS) for building and deploying:
+
+```bash
+eas build
+eas submit
+```
+
+## Troubleshooting
+
+### Port Already in Use
+```bash
+lsof -ti:19000 | xargs kill -9
+```
+
+### Clear Cache
+```bash
+expo start -c
+```
+
+### Reset Dependencies
+```bash
+rm -rf node_modules && npm install
+```
 
 ## Contributing
 
-1. Create a feature branch: `git checkout -b feature/your-feature`
-2. Commit changes: `git commit -am 'Add your feature'`
-3. Push to branch: `git push origin feature/your-feature`
+1. Create a feature branch: `git checkout -b feature/feature-name`
+2. Commit changes: `git commit -am 'Add feature'`
+3. Push to branch: `git push origin feature/feature-name`
 4. Submit a pull request
 
 ## License
 
-MIT
+MIT License - see LICENSE file for details
 
 ## Support
 
-For support, email support@runverse.com or visit our community forum.
+For issues and questions, please open an issue on the GitHub repository or contact support@runverse.com
 
 ## Roadmap
 
-- [ ] Apple Watch integration
-- [ ] Garmin device sync
-- [ ] Advanced analytics dashboard
-- [ ] Training plan marketplace
-- [ ] Live group runs
-- [ ] AR running experience
-- [ ] Voice coaching
-- [ ] Wearable notifications
-
-## Acknowledgments
-
-Built by runners, for runners. RunVerse is a community-driven platform dedicated to making running more enjoyable, connected, and rewarding.
+- [ ] Offline mode support
+- [ ] Push notifications
+- [ ] Wearable integration (Apple Watch, Wear OS)
+- [ ] Advanced analytics and insights
+- [ ] Social challenges and competitions
+- [ ] Integration with popular running apps (Strava, MapMyRun)
